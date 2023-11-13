@@ -1,0 +1,34 @@
+* text=auto
+*.xml text eol=lf
+*.properties text eol=lf
+.bundle/config -text
+.eslintrc.js -text
+.gitignore -text
+.prettierrc.js -text
+.watchmanconfig -text
+Gemfile -text
+README.md -text
+__tests__/App.test.tsx -text
+android/app/build.gradle -text
+android/app/proguard-rules.pro -text
+android/app/src/debug/AndroidManifest.xml -text
+android/app/src/debug/java/com/awesomeproject/ReactNativeFlipper.java -text
+android/app/src/main/java/com/awesomeproject/MainActivity.java -text
+android/app/src/main/java/com/awesomeproject/MainApplication.java -text
+ android/app/src/main/AndroidManifest.xml -text
+ android/app/src/main/res/drawable/rn_edit_text_material.xml -text
+ android/app/src/main/res/values/strings.xml -text
+ android/app/src/main/res/values/styles.xml -text
+ android/app/src/release/java/com/awesomeproject/ReactNativeFlipper.java -text
+ android/build.gradle -text
+ android/gradle.properties -text
+ android/app/build.gradle -text
+android/gradlew -text
+android/settings.gradle -text
+*.json text eol=lf
+*.js text eol=lf
+App.js -text
+Screens/TermCondition.js -text
+Screens/WalkthroughScreen.js -text
+Screens/WelcomeScreen.js -text
+ Styles/style.js -text
