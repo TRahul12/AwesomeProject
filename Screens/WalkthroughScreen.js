@@ -50,7 +50,7 @@ const WalkthroughScreens = () => {
           ref={swiperRef}
           style={styles.swiper}
           paginationStyle={styles.paginationstyle}
-          activeDotColor="white"
+          dotStyle={styles.dotStyle}
           activeDotStyle={styles.activedotStyle}
           loop={false}
           onIndexChanged={(index) => setCurrentSlide(index)}
@@ -112,17 +112,37 @@ const WalkthroughScreens = () => {
 }
 
 const styles =StyleSheet.create({
-  activedotStyle:{
-      width: 20, 
-      height: 8
-  },
   flexStyle:{
     flexDirection: 'row', 
     alignItems: 'center'
   },
   paginationstyle:{
       position: "absolute", 
-      bottom: "30%"
+      bottom: 150,
+  },
+  dotStyle: {
+    backgroundColor: 'gray',
+    width: 12,       
+    height: 12,      
+    borderRadius: 6,
+    marginLeft: 3,
+    marginRight: 3,
+    marginTop: 3,
+    marginBottom: 3,
+    zIndex: 1,
+    gap:4
+  },
+  activedotStyle:{
+    width: 24,
+    height: 8,
+    borderRadius: 12,
+    backgroundColor:"white",
+    marginLeft: 3,
+    marginRight: 3,
+    marginTop: 3,
+    marginBottom: 3,
+    zIndex: 1,
+    gap:4
   },
   containerStyle:{
       flexDirection: 'row',

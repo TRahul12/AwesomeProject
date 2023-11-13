@@ -11,29 +11,15 @@ const CarouselScreens = () => {
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
         {
-            image: require('../background.jpg'),
+            image: require("../assets/images/chevrons-down.png"),
             text: 'Slide 2 Text',
         },
         {
-            image: require('../assets/images/chevrons-down.png'),
+            image: require('../background.jpg'),
             text: 'Slide 3 Text',
         },
     ]; 
     const image = require('../background.jpg')
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex(currentIndex => {
-                const nextIndex = (currentIndex + 1) % 3;
-                if (nextIndex === slides.length-1) {
-                    clearInterval(interval);
-                }
-    
-                return nextIndex;
-            });
-        }, 1000);
-    
-        return () => clearInterval(interval);
-    }, []);
 
     const handlePressContinue = () => {
         setShowBackground(true);
@@ -41,6 +27,9 @@ const CarouselScreens = () => {
     if (showBackground) {
         return <ImageBackground source={image} resizeMode="cover" style={{ flex: 1 }} />;
     }
+    const handleIndexChanged = (index) => {
+        setCurrentIndex(index);
+    };
     return (
         <View style={styles.container}>
             <Swiper
@@ -48,9 +37,10 @@ const CarouselScreens = () => {
                 showsButtons={false}
                 loop={false}
                 index={currentIndex}
-                autoplay={false}
+                autoplay={true}
                 showsPagination={true}
                 dotStyle={styles.dotStyle}
+                onIndexChanged={handleIndexChanged}
                 activeDotStyle={styles.activeDotStyle}
             >
                 {slides.map((slide, index) => (
@@ -96,18 +86,20 @@ const styles = StyleSheet.create({
         lineHeight: 24,
     },
     dotStyle: {
-        backgroundColor: 'rgba(255,255,255,.3)',
-        width: 24,
-        height: 8,
-        borderRadius: 12,
+        backgroundColor: 'gray',
+        width: 12,       
+        height: 12,      
+        borderRadius: 6,
         marginLeft: 3,
         marginRight: 3,
         marginTop: 3,
         marginBottom: 3,
         zIndex: 1,
+        bottom: 60,
+        gap:4
     },
     activeDotStyle: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#fff',
         width: 24,
         height: 8,
         borderRadius: 12,
@@ -139,6 +131,19 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         color: "#060609",
     },
+    inactiveDotStyle:{
+        backgroundColor: 'red',
+        width: 24,
+        height: 8,
+        borderRadius: 12,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
+        marginBottom: 3,
+        zIndex: 1,
+        bottom: 60,
+        gap:4
+    }
 });
 
 export default CarouselScreens;
