@@ -32,8 +32,8 @@ const CarouselScreens = () => {
     };
     return (
         <View style={styles.container}>
+            <View style={styles.wrapper}>
             <Swiper
-                style={styles.wrapper}
                 showsButtons={false}
                 loop={false}
                 index={currentIndex}
@@ -51,6 +51,8 @@ const CarouselScreens = () => {
                     </View>
                 ))}
             </Swiper>
+            </View>
+           
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity  onPress={handlePressContinue}>
                     <Text style={styles.buttonText}>Continue</Text>
@@ -65,12 +67,28 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'black',
     },
-    wrapper: {},
+    wrapper: {
+        flex:0.8,
+        backgroundColor:"#16161B",
+        marginTop:50,
+        width:361,
+        height:618,
+        alignSelf:"center",
+        borderRadius:20,
+        borderWidth:1,
+        padding:20,
+        gap:20
+    },
     slide: {
+        marginBottom:100,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black',
+        alignSelf:"center",
+        width:361,
+        height:100,
+        backgroundColor:"#38383D",
+        gap:20
     },
     image: {
         width: 321,
@@ -87,20 +105,20 @@ const styles = StyleSheet.create({
         lineHeight: 24,
     },
     dotStyle: {
-        backgroundColor: 'gray',
+        backgroundColor: '#242429',
         width: 12,       
         height: 12,      
         borderRadius: 6,
         marginLeft: 3,
         marginRight: 3,
         marginTop: 3,
-        marginBottom: 3,
+        marginBottom: 5,
         zIndex: 1,
-        bottom: 60,
+        bottom: 40,
         gap:4
     },
     activeDotStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: '#FFFFFF',
         width: 24,
         height: 8,
         borderRadius: 12,
@@ -109,7 +127,7 @@ const styles = StyleSheet.create({
         marginTop: 3,
         marginBottom: 3,
         zIndex: 1,
-        bottom: 60,
+        bottom: 40,
         gap:4
     },
     buttonWrapper: {
