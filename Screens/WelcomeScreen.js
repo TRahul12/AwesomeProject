@@ -38,6 +38,7 @@ const CarouselScreens = () => {
                 loop={false}
                 index={currentIndex}
                 autoplay={true}
+                autoplayTimeout={5}
                 showsPagination={true}
                 dotStyle={styles.dotStyle}
                 onIndexChanged={handleIndexChanged}
