@@ -32,7 +32,9 @@ const TermsAndConditionsComponent = ({ onAccept })=>{
             </View>
         </ScrollView>
         <View style={styles.checkboxContainer}>
-            <CheckBox value={agree} onValueChange={(newValue) => setAgree(newValue)} />
+            <View style={styles.checkboxWrapper}>
+                <CheckBox value={agree} onValueChange={(newValue) => setAgree(newValue)} />
+            </View>
             <Text style={styles.label}>I agree to the terms and conditions.</Text>
         </View>
         <View style={styles.buttonWrapper}>
@@ -56,7 +58,9 @@ const styles = StyleSheet.create({
     contentcontainer:{
         marginTop:70,
         marginLeft:20,
-        gap:40
+        gap:40,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     header:{
         fontSize: 14,
@@ -88,14 +92,20 @@ const styles = StyleSheet.create({
         fontWeight:'400',
     },
     label: {
-        marginLeft: 8,
-        color:"#fff"
+        marginLeft:5,
+        color:"#fff",
+        width:247,
+        height:24,
+        gap:4
     },
     checkboxContainer:{
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 10,
-        paddingBottom:5,
+        justifyContent: 'flex-start',
+        paddingTop: 10,
+        marginLeft: 30,
+        paddingBottom: 10,
+        height: 60
     },
     button: {
         margin: 4,  
@@ -121,6 +131,16 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         textAlign: 'center', 
+    },
+    checkboxWrapper: {
+        marginRight: 5,
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#FFF',
+        width: 20,
+        height: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 

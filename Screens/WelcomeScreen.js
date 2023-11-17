@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Swiper from "react-native-swiper";
 import { Image, TouchableOpacity, View, StyleSheet, Text, ImageBackground } from "react-native";
 
+
 const CarouselScreens = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showBackground, setShowBackground] = useState(false);
     const slides = [
         {
             image: require('../assets/images/chevrons-up.png'),
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
         {
             image: require("../assets/images/chevrons-down.png"),
-            text: 'Slide 2 Text',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
         {
             image: require('../background.jpg'),
-            text: 'Slide 3 Text',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
     ]; 
     const image = require('../background.jpg')
@@ -44,20 +45,25 @@ const CarouselScreens = () => {
                 onIndexChanged={handleIndexChanged}
                 activeDotStyle={styles.activeDotStyle}
             >
-                {slides.map((slide, index) => (
-                    <View key={index} style={styles.slide}>
-                        <Image source={slide.image} style={styles.image} />
-                        <Text style={styles.subtitle}>{slide.text}</Text>
-                    </View>
-                ))}
-            </Swiper>
+        {slides.map((slide, index) => (
+            <View key={index} style={styles.slide}>
+                {/* Container for the Image */}
+                <View style={styles.imageContainer}>
+                    <Image source={slide.image} style={styles.image} />
+                </View>
+
+                {/* Container for the Text */}
+                <View style={{}}>
+                    <Text style={styles.subtitle}>{slide.text}</Text>
+                </View>
             </View>
-           
-            <View style={styles.buttonWrapper}>
-                <TouchableOpacity  onPress={handlePressContinue}>
-                    <Text style={styles.buttonText}>Continue</Text>
-                </TouchableOpacity>
-            </View>
+        ))}
+        </Swiper>
+        </View>
+        <TouchableOpacity style={styles.buttonWrapper}
+            onPress={handlePressContinue}>       
+        <Text style={styles.buttonText}>Continue</Text>
+        </TouchableOpacity>
         </View>
     );
 };
@@ -65,44 +71,28 @@ const CarouselScreens = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
+        backgroundColor: '#38383D'
+    },
+    gradient: {
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     wrapper: {
         flex:0.8,
         backgroundColor:"#16161B",
         marginTop:50,
-        width:361,
-        height:618,
-        alignSelf:"center",
-        borderRadius:20,
-        borderWidth:1,
-        padding:20,
-        gap:20
     },
     slide: {
-        marginBottom:100,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf:"center",
         width:361,
         height:100,
-        backgroundColor:"#38383D",
+        backgroundColor:"#16161B",
         gap:20
-    },
-    image: {
-        width: 321,
-        height: 300,
-        borderRadius:1,
-        padding:72,
-        gap:24
-    },
-    subtitle: {
-        width: 321,
-        height: 72,
-        fontSize: 16,
-        color: '#A5A5AA',
-        lineHeight: 24,
     },
     dotStyle: {
         backgroundColor: '#242429',
@@ -114,10 +104,10 @@ const styles = StyleSheet.create({
         marginTop: 3,
         marginBottom: 5,
         zIndex: 1,
-        bottom: 40,
+        top: 50,
         gap:4
     },
-    activeDotStyle: {
+    activeDotStyle:{
         backgroundColor: '#FFFFFF',
         width: 24,
         height: 8,
@@ -127,8 +117,27 @@ const styles = StyleSheet.create({
         marginTop: 3,
         marginBottom: 3,
         zIndex: 1,
-        bottom: 40,
-        gap:4
+        bottom: 0,
+        gap:4,
+        top: 50
+    },
+    imageContainer:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap:24
+    },
+    textContainer: {
+        lineHeight:24
+    },
+    image: {
+        width:321,
+        height:400
+    },
+    subtitle:{
+        width:321,
+        height:72,
+        fontSize: 16,
+        color: '#A5A5AA'
     },
     buttonWrapper: {
         justifyContent: 'center',
@@ -148,21 +157,8 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         textAlign: 'center',
         lineHeight: 20,
-        color: "#060609",
-    },
-    inactiveDotStyle:{
-        backgroundColor: 'red',
-        width: 24,
-        height: 8,
-        borderRadius: 12,
-        marginLeft: 3,
-        marginRight: 3,
-        marginTop: 3,
-        marginBottom: 3,
-        zIndex: 1,
-        bottom: 60,
-        gap:4
-    }
+        color: "#060609"
+    }   
 });
 
 export default CarouselScreens;

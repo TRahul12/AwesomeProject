@@ -186,7 +186,7 @@ const styles =StyleSheet.create({
   },
   nextStyle:{
       position:"absolute",
-      bottom:"5%",
+      bottom:5,
       left : 0,
       right : 0,
       justifyContent :'center',
